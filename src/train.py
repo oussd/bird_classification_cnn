@@ -1,8 +1,8 @@
 import mlflow
 import mlflow.keras
 import os
-from src.data_loader import load_data
-from src.model import build_model, get_callbacks
+from data_loader import load_data, prepare_dataframes
+from model import build_model, get_callbacks
 
 def train() -> None:
     """
@@ -19,14 +19,16 @@ def train() -> None:
     7. Save the trained model for later inference.
     """
     # Set up MLflow tracking
+    print('test1')
     mlflow.set_experiment("Bird_Classification")
 
     # Load the data
     train_dir = os.path.join('data', 'train')
+    print(train_dir)
     test_dir = os.path.join('data', 'test')
-    val_dir = os.path.join('data', 'valid')
-    train_data, val_data, test_data = load_data(train_dir,val_dir, test_dir)
-
+    train_df = prepare_dataframes(train_dir)
+    print(train_df)
+    test_df = prepare_dataframes(test_dir)
     # Build the model
     model = build_model(num_classes=525)
 
@@ -36,10 +38,12 @@ def train() -> None:
 
     # Start an MLflow run
     with mlflow.start_run():
+        print('running')
+        train_data, test_data = load_data(train_df, test_df)
+
         # Train the model
         history = model.fit(
             train_data,
-            validation_data=val_data,
             epochs=epochs,
             callbacks=get_callbacks(),
             verbose=1
@@ -59,3 +63,6 @@ def train() -> None:
         print(f"Model saved to {model_save_path}")
 
         print(f"Test Loss: {test_loss}, Test Accuracy: {test_accuracy}")
+
+
+train()

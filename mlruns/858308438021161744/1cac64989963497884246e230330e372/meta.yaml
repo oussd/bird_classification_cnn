@@ -1,0 +1,15 @@
+artifact_uri: file:///home/student/bird_classification_cnn/mlruns/858308438021161744/1cac64989963497884246e230330e372/artifacts
+end_time: 1711716992089
+entry_point_name: ''
+experiment_id: '858308438021161744'
+lifecycle_stage: active
+run_id: 1cac64989963497884246e230330e372
+run_name: receptive-skink-110
+run_uuid: 1cac64989963497884246e230330e372
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1711716992085
+status: 4
+tags: []
+user_id: student

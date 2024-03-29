@@ -1,0 +1,15 @@
+artifact_uri: file:///home/student/bird_classification_cnn/mlruns/858308438021161744/fa4fd5d91fdd4aad8a6c0c871709d45f/artifacts
+end_time: 1711718033712
+entry_point_name: ''
+experiment_id: '858308438021161744'
+lifecycle_stage: active
+run_id: fa4fd5d91fdd4aad8a6c0c871709d45f
+run_name: awesome-swan-993
+run_uuid: fa4fd5d91fdd4aad8a6c0c871709d45f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1711718033708
+status: 4
+tags: []
+user_id: student

@@ -12,12 +12,12 @@ def data_augmentation(image_height: int = 224,
         tf.keras.Sequential: The data augmentation pipeline.
     """
     augment = tf.keras.Sequential([
-        layers.experimental.preprocessing.Resizing(image_height, image_width),
-        layers.experimental.preprocessing.Rescaling(1./255),
-        layers.experimental.preprocessing.RandomFlip("horizontal"),
-        layers.experimental.preprocessing.RandomRotation(0.1),
-        layers.experimental.preprocessing.RandomZoom(0.1),
-        layers.experimental.preprocessing.RandomContrast(0.1),
+        tf.keras.layers.Resizing(image_height, image_width),
+        tf.keras.layers.Rescaling(1./255),
+        tf.keras.layers.RandomFlip("horizontal"),
+        tf.keras.layers.RandomRotation(0.1),
+        tf.keras.layers.RandomZoom(0.1),
+        tf.keras.layers.RandomContrast(0.1),
     ])
     return augment
 
