@@ -1,6 +1,6 @@
 import os
-from tensorflow.keras.models import load_model
-from data_loader import load_data
+from keras.models import load_model
+from src.data_loader import load_data
 
 def evaluate(model_path: str,
              test_dir: str,

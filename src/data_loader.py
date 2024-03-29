@@ -1,12 +1,12 @@
 from typing import Tuple
 from keras_preprocessing.image import ImageDataGenerator, DirectoryIterator
 import tensorflow as tf
-from tensorflow.keras import layers
+# from keras import layers
 from pathlib import Path
 import os
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from helper_functions import walk_through_dir
+from src.helper_functions import walk_through_dir
 
 
 def prepare_dataframes(dataset: str) -> Tuple[pd.DataFrame, pd.DataFrame]:

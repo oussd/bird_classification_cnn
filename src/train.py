@@ -1,8 +1,8 @@
 import mlflow
 import mlflow.keras
 import os
-from data_loader import load_data
-from model import build_model, get_callbacks
+from src.data_loader import load_data
+from src.model import build_model, get_callbacks
 
 def train() -> None:
     """

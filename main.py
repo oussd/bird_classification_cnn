@@ -1,8 +1,15 @@
 import os
-from data_loader import prepare_dataframes, load_data
-from model import build_model, get_callbacks
-from train import train
-from evaluate import evaluate
+import sys
+
+# Add the parent directory of 'src' to the Python path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+print(sys.path)
+
+from src.data_loader import prepare_dataframes, load_data
+from src.model import build_model, get_callbacks
+from src.train import train
+from src.evaluate import evaluate
+from src.helper_functions import *
 
 
 def main():
@@ -11,6 +18,7 @@ def main():
     """
     # Set paths
     train_dir = os.path.join('/data', 'train')
+    print(train_dir)
     test_dir = os.path.join('/data', 'test')
     print(test_dir)
     model_path = 'models/bird_classification_model.h5'
