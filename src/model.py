@@ -1,7 +1,7 @@
 import tensorflow as tf
-from tensorflow.keras import layers, models
-from tensorflow.keras.callbacks import ModelCheckpoint, EarlyStopping, ReduceLROnPlateau
-from tensorflow.keras.optimizers import Adam
+from keras import layers, models
+from keras.callbacks import ModelCheckpoint, EarlyStopping, ReduceLROnPlateau
+from keras.optimizers import Adam
 
 def data_augmentation(image_height: int = 224,
                       image_width: int = 224) -> tf.keras.Sequential:

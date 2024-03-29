@@ -24,7 +24,8 @@ def train() -> None:
     # Load the data
     train_dir = os.path.join('data', 'train')
     test_dir = os.path.join('data', 'test')
-    train_data, val_data, test_data = load_data(train_dir, test_dir)
+    val_dir = os.path.join('data', 'valid')
+    train_data, val_data, test_data = load_data(train_dir,val_dir, test_dir)
 
     # Build the model
     model = build_model(num_classes=525)
