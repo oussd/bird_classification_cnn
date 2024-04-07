@@ -1,6 +1,13 @@
+<<<<<<< HEAD
 artifact_location: file:///home/student/bird_classification_cnn-2/mlruns/0
 creation_time: 1712520878800
 experiment_id: '0'
 last_update_time: 1712520878800
+=======
+artifact_location: file:///home/student/bird_classification_cnn/mlruns/0
+creation_time: 1711716123603
+experiment_id: '0'
+last_update_time: 1711716123603
+>>>>>>> 231eb5b6ec048b369023141ed275db77dbda808e
 lifecycle_stage: active
 name: Default

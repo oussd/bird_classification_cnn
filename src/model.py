@@ -1,12 +1,36 @@
+<<<<<<< HEAD
 import torch
 import torch.nn as nn
 import torch.optim as optim
 from torchvision import models
 from torchvision.models.efficientnet import EfficientNet_B0_Weights
 from torch.utils.tensorboard import SummaryWriter
+=======
+import tensorflow as tf
+from keras import layers, models
+from keras.callbacks import ModelCheckpoint, EarlyStopping, ReduceLROnPlateau
+from keras.optimizers import Adam
+>>>>>>> 231eb5b6ec048b369023141ed275db77dbda808e
 
 
+<<<<<<< HEAD
 def build_model(num_classes: int = 525) -> nn.Module:
+=======
+    Returns:
+        tf.keras.Sequential: The data augmentation pipeline.
+    """
+    augment = tf.keras.Sequential([
+        tf.keras.layers.Resizing(image_height, image_width),
+        tf.keras.layers.Rescaling(1./255),
+        tf.keras.layers.RandomFlip("horizontal"),
+        tf.keras.layers.RandomRotation(0.1),
+        tf.keras.layers.RandomZoom(0.1),
+        tf.keras.layers.RandomContrast(0.1),
+    ])
+    return augment
+
+def build_model(num_classes: int = 525) -> models.Model:
+>>>>>>> 231eb5b6ec048b369023141ed275db77dbda808e
     """
     Builds a CNN model using the EfficientNetB0 architecture with pre-trained weights and custom layers.
 

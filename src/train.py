@@ -6,15 +6,10 @@ import mlflow
 from src.model import build_model, get_optimizer, get_loss_function
 from torch.utils.tensorboard import SummaryWriter
 import os
+from data_loader import load_data
+from model import build_model, get_callbacks
 
-
-def train(model: nn.Module, 
-          train_loader: DataLoader,
-          test_loader: DataLoader,
-          num_classes: int = 525,
-          device: str = " cuda",
-          epochs: int = 10, 
-          experiment_name: str = "Bird_Classification") -> None:
+def train() -> None:
     """
     Trains the bird classification model, tracks the training process using MLflow and TensorBoard,
     and saves the model for later inference.
@@ -26,7 +21,12 @@ def train(model: nn.Module,
         epochs (int): Number of epochs to train the model. Default is 10.
     """
     # Set up MLflow tracking
-    mlflow.set_experiment(experiment_name)
+    mlflow.set_experiment("Bird_Classification")
+
+    # Load the data
+    train_dir = os.path.join('data', 'train')
+    test_dir = os.path.join('data', 'test')
+    train_data, val_data, test_data = load_data(train_dir, test_dir)
 
     # Build the model
     model = model.to(device)
@@ -40,24 +40,14 @@ def train(model: nn.Module,
 
     # Start an MLflow run
     with mlflow.start_run():
-        for epoch in range(epochs):
-            model.train()
-            running_loss = 0.0
-            for batch_idx, (images, labels) in enumerate(train_loader):
-                images, labels = images.to(device), labels.to(device)
-                optimizer.zero_grad()
-                outputs = model(images)
-                loss = criterion(outputs, labels)
-                loss.backward()
-                optimizer.step()
-                running_loss += loss.item()
-
-                # Log training loss for each batch
-                writer.add_scalar('Batch/Training Loss', loss.item(), epoch * len(train_loader) + batch_idx)
-
-            # Log average training loss for the epoch
-            avg_train_loss = running_loss / len(train_loader)
-            writer.add_scalar('Epoch/Average Training Loss', avg_train_loss, epoch)
+        # Train the model
+        history = model.fit(
+            train_data,
+            validation_data=val_data,
+            epochs=epochs,
+            callbacks=get_callbacks(),
+            verbose=1
+        )
 
             # Evaluate the model on the test set
             model.eval()
@@ -93,3 +83,6 @@ def train(model: nn.Module,
 
         # Close the TensorBoard writer
         writer.close()
+
+
+train()

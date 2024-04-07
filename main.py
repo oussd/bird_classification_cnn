@@ -12,6 +12,7 @@ def main():
     """
     # Set paths
     train_dir = os.path.join('/data', 'train')
+    print("hello training",train_dir)
     test_dir = os.path.join('/data', 'test')
     print(test_dir)
     model_path = 'models/bird_classification_model.h5'

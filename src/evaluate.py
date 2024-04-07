@@ -1,5 +1,9 @@
 import os
+<<<<<<< HEAD
 from tensorflow.keras.models import load_model
+=======
+from keras.models import load_model
+>>>>>>> 231eb5b6ec048b369023141ed275db77dbda808e
 from src.data_loader import load_data
 
 def evaluate(model_path: str,
