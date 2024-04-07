@@ -1,0 +1,15 @@
+artifact_uri: file:///home/student/bird_classification_cnn-2/mlruns/288995430045993418/0f288c9fa59c4b94b9c43391c0b77fb9/artifacts
+end_time: 1712525829754
+entry_point_name: ''
+experiment_id: '288995430045993418'
+lifecycle_stage: active
+run_id: 0f288c9fa59c4b94b9c43391c0b77fb9
+run_name: persistent-toad-336
+run_uuid: 0f288c9fa59c4b94b9c43391c0b77fb9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712521078589
+status: 4
+tags: []
+user_id: student

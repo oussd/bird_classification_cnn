@@ -1,0 +1,15 @@
+artifact_uri: file:///home/student/bird_classification_cnn-2/mlruns/288995430045993418/e95353d346f241f988d75d5cba079749/artifacts
+end_time: 1712520988617
+entry_point_name: ''
+experiment_id: '288995430045993418'
+lifecycle_stage: active
+run_id: e95353d346f241f988d75d5cba079749
+run_name: unruly-deer-722
+run_uuid: e95353d346f241f988d75d5cba079749
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712520879125
+status: 4
+tags: []
+user_id: student

@@ -84,7 +84,10 @@ def train(model: nn.Module,
             print(f'Epoch {epoch+1}/{epochs}, Training Loss: {avg_train_loss:.4f}, Test Loss: {avg_test_loss:.4f}, Test Accuracy: {test_accuracy:.4f}')
 
         # Save the trained model for later inference
+        
         model_save_path = os.path.join('models', 'bird_classification_model.pth')
+        # Ensure the directory exists before saving the model
+        os.makedirs(os.path.dirname(model_save_path), exist_ok=True)
         torch.save(model.state_dict(), model_save_path)
         print(f'Model saved to {model_save_path}')
 
